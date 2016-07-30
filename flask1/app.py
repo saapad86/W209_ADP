@@ -6,7 +6,7 @@ import matplotlib as plt
 import seaborn as sns
 from pandas.compat import StringIO
 #import pandas_highcharts
-from pandas_highcharts.core import serialize
+#rom pandas_highcharts.core import serialize
 
 app = Flask(__name__)
 app.debug = True
@@ -28,6 +28,9 @@ def checkFilters(filters):
 def hello_world():
     return 'WELCOME TO FLASK!'
 
+@app.route('/bls')
+def bls():
+	return render_template('bls.html')
 
 @app.route('/adp')
 @app.route('/adp/<action>',methods=['GET','POST'])
