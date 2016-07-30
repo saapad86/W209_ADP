@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <link rel="stylesheet" type="text/css" href="result-light.css">
+  
+  <style type="text/css">
+    
+  </style>
+
+  <title></title>
+
+<script type='text/javascript'>//<![CDATA[
+
+$(function () {
+    var seriesOptions = [],
+        seriesCounter = 0,
+        names = ['West', 'Midwest', 'Northeast', 'South'];
+
+    /**
+     * Create the chart when all data is loaded
+     * @returns {undefined}
+     */
+    function createChart() {
+
+        $('#container').highcharts('StockChart', {
+
+            rangeSelector: {
+                selected: 5    // refers to the index of button array that is pre-selected, see details here: http://api.highcharts.com/highstock#rangeSelector.buttons
+            },
+
+            yAxis: {
+                labels: {
+                    formatter: function () {
+                        return (this.value > 0 ? ' + ' : '') + this.value;
+                    }
+                },
+      /*
+                plotLines: [{
+                    value: 0,
+                    width: 0,
+                    color: 'silver'
+                }]
+      */
+            },
+
+            /*
+            plotOptions: {
+                series: {
+                    compare: 'value'
+                }
+            },
+            */ 
+            tooltip: {
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> <br/>',
+                valueDecimals:0
+            },
+
+            series: seriesOptions
+        });
+    }
+
+
+
+seriesOptions[0] = {
+        name: 'West',
+        data: [
+        [new Date(Date.UTC(2015, 0, 1)).getTime(),66],
+        [new Date(Date.UTC(2015, 1, 1)).getTime(),62],
+        [new Date(Date.UTC(2015, 2, 1)).getTime(),66],
+        [new Date(Date.UTC(2015, 3, 1)).getTime(),59],
+        [new Date(Date.UTC(2015, 4, 1)).getTime(),58],
+        [new Date(Date.UTC(2015, 5, 1)).getTime(),82],
+        [new Date(Date.UTC(2015, 6, 1)).getTime(),40],
+        [new Date(Date.UTC(2015, 7, 1)).getTime(),61],
+        [new Date(Date.UTC(2015, 8, 1)).getTime(),61],
+        [new Date(Date.UTC(2015, 9, 1)).getTime(),53],
+        [new Date(Date.UTC(2015, 10, 1)).getTime(),55],
+        [new Date(Date.UTC(2015, 11, 1)).getTime(),79],
+        [new Date(Date.UTC(2016, 0, 1)).getTime(),51],
+        [new Date(Date.UTC(2016, 1, 1)).getTime(),58], 
+        [new Date(Date.UTC(2016, 2, 1)).getTime(),50],
+        [new Date(Date.UTC(2016, 3, 1)).getTime(),51]]
+    };
+/*
+    seriesOptions[1] = {
+        name: 'Midwest',
+        data: [
+        [new Date(Date.UTC(2015, 0, 1)).getTime(),33],
+        [new Date(Date.UTC(2015, 1, 1)).getTime(),31],
+        [new Date(Date.UTC(2015, 2, 1)).getTime(),25],
+        [new Date(Date.UTC(2015, 3, 1)).getTime(),39],
+        [new Date(Date.UTC(2015, 4, 1)).getTime(),42],
+        [new Date(Date.UTC(2015, 5, 1)).getTime(),64],
+        [new Date(Date.UTC(2015, 6, 1)).getTime(),27],
+        [new Date(Date.UTC(2015, 7, 1)).getTime(),32],
+        [new Date(Date.UTC(2015, 8, 1)).getTime(),23],
+        [new Date(Date.UTC(2015, 9, 1)).getTime(),32],
+        [new Date(Date.UTC(2015, 10, 1)).getTime(),35],
+        [new Date(Date.UTC(2015, 11, 1)).getTime(),54],
+        [new Date(Date.UTC(2016, 0, 1)).getTime(),36],
+        [new Date(Date.UTC(2016, 1, 1)).getTime(),29], 
+        [new Date(Date.UTC(2016, 2, 1)).getTime(),34],
+        [new Date(Date.UTC(2016, 3, 1)).getTime(),33]]
+    };
+*/
+/*
+    seriesOptions[2] = {
+        name: 'Northeast',
+       data: [[new Date(Date.UTC(2016, 0, 1)).getTime(),27],[1454284800000,38], [1456790400000,37],[1459468800000,20]]
+    };
+       
+    seriesOptions[3] = {
+        name: 'South',
+       data: [[new Date(Date.UTC(2016, 0, 1)).getTime(),80],[1454284800000,82], [1456790400000,73],[1459468800000,52]]
+    };
+*/
+
+createChart();
+/*
+     $.each(names, function (i, name) {
+        $.getJSON('ADPBLSsep.json', function (data) {
+   
+
+            // Add X values
+            data.ADP = Highcharts.map(data.ADP, function (val, j) {
+
+                return [((parseInt(activity.xData[j]))- 25569)*86400*1000, val];
+              }
+            );
+
+            data.BLS = Highcharts.map(data.BLS, function (val, j) {
+
+                return [((parseInt(activity.xData[j]))- 25569)*86400*1000, val];
+              }
+            );
+});
+});
+
+*/
+
+/*
+    $.each(names, function (i, name) {
+
+        $.getJSON(name.toLowerCase() + '.json',    function (data) {
+            console.log(data);
+            seriesOptions[i] = {
+                name: name,
+                data: data
+            };
+
+            // As we're loading the data asynchronously, we don't know what order it will arrive. So
+            // we keep a counter and create the chart when all the data is loaded.
+            seriesCounter += 1;
+
+            if (seriesCounter === names.length) {
+                createChart();
+            }
+        });
+    });
+*/
+
+});
+//]]> 
+
+</script>
+
+  
+</head>
+
+<body>
+  <script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+
+
+<div id="container" style="height: 400px; min-width: 310px"></div>
+  
+</body>
+
+</html>
