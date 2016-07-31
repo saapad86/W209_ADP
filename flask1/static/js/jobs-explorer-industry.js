@@ -1,7 +1,7 @@
 $(function() {
     $('#container').highcharts({
         chart: {
-            type: 'area',
+            type: 'line',
             zoomType: 'x'
         },
         title: {
@@ -23,8 +23,20 @@ $(function() {
             enabled: false
         },
         series: [{
-            name: 'Total Jobs',
-            data: jobs_us
+            name: 'Natural Resource',
+            data: jobs_resource
+        },
+        {
+            name: 'Trade',
+            data: jobs_trade
+        },
+        {
+            name: 'Professional',
+            data: jobs_professional
+        },
+        {
+            name: 'Manufacturing',
+            data: jobs_manufacturing
         }]
     });
 });

@@ -99,6 +99,17 @@ def adp(topic='total',filter='Total'):
 		jobs_west = extractColumn(df1[df1['hc-key']=='us-cwer'],'jobs')
 
 		return render_template('adp1.html',topic=topic,months=months,filter_text=filter_text,filters=filters,jobs_midwest=jobs_midwest,jobs_northeast=jobs_northeast,jobs_south=jobs_south,jobs_west=jobs_west)
+	elif topic == 'industry':
+		df1 = df0[df0['hc-key'] == 'us-us']
+		#df1 = applyFilters(df1)
+
+
+		jobs_resource = extractColumn(df1,'delta_resource')
+		jobs_manufacturing = extractColumn(df1,'delta_manufacturing')
+		jobs_trade = extractColumn(df1,'delta_trade')
+		jobs_professional = extractColumn(df1,'delta_professional')
+
+		return render_template('adp1.html',topic=topic,months=months,filter_text=filter_text,filters=filters,jobs_resource=jobs_resource,jobs_manufacturing=jobs_manufacturing,jobs_trade=jobs_trade,jobs_professional=jobs_professional)
 	else:
 		df1 = df0[df0['hc-key'].isin(['us-us'])]
 		df1 = applyFilters(df1)

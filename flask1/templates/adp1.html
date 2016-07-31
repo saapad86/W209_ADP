@@ -15,6 +15,16 @@
 		var jobs_midwest = {{jobs_midwest|safe}}
 	</script>
 {% endif %}
+{% if topic == 'industry' %}
+	<script src="../static/js/jobs-explorer-industry.js"></script>
+	<script type='text/javascript'>
+		var months = {{months|safe}}
+		var jobs_resource = {{jobs_resource|safe}}
+		var jobs_trade = {{jobs_trade|safe}}
+		var jobs_manufacturing = {{jobs_manufacturing|safe}}
+		var jobs_professional = {{jobs_professional|safe}}
+	</script>
+{% endif %}
 {% if topic == 'total' %}
 	<script src="../static/js/adp2.js"></script>
 	<script type='text/javascript'>
@@ -87,13 +97,6 @@
 							<label>
 							    <input type="checkbox" name="check" value="filterRegionSouthOn" {{filters.filterRegionSouthOn|safe}}>South
 							</label>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						{% for x in months %}
-						{{x|safe}}
-						{% endfor %}
 						</td>
 					</tr>
 				</table>
