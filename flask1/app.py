@@ -80,7 +80,6 @@ def adp(topic='total',filter='Total'):
 				filters[f] = 'checked'
 
 	df0 = pd.read_csv('static/data/ADP1.csv')
-	filter_text = 'Jobs'
 
 	import datetime
 	epoch = datetime.datetime.utcfromtimestamp(0)
@@ -88,6 +87,8 @@ def adp(topic='total',filter='Total'):
 	    return (dt - epoch).total_seconds() * 1000.0
 
 	months = pd.Series(map(lambda x: unix_time_millis(x),pd.date_range('1/1/2005',periods=136,freq='M'))).tolist()
+
+	filter_text = 'Jobs'
 
 	if topic == 'region':
 		df1 = df0[df0['hc-key'].isin(['us-cncr','us-cner','us-csor','us-cwer'])]
@@ -98,11 +99,14 @@ def adp(topic='total',filter='Total'):
 		jobs_south = extractColumn(df1[df1['hc-key']=='us-csor'],'jobs')
 		jobs_west = extractColumn(df1[df1['hc-key']=='us-cwer'],'jobs')
 
+		filter_text = 'Jobs By Region'
+
 		return render_template('adp1.html',topic=topic,months=months,filter_text=filter_text,filters=filters,jobs_midwest=jobs_midwest,jobs_northeast=jobs_northeast,jobs_south=jobs_south,jobs_west=jobs_west)
 	elif topic == 'industry':
 		df1 = df0[df0['hc-key'] == 'us-us']
 		#df1 = applyFilters(df1)
 
+		filter_text = 'Jobs By Industry'
 
 		jobs_resource = extractColumn(df1,'delta_resource')
 		jobs_manufacturing = extractColumn(df1,'delta_manufacturing')
@@ -110,9 +114,21 @@ def adp(topic='total',filter='Total'):
 		jobs_professional = extractColumn(df1,'delta_professional')
 
 		return render_template('adp1.html',topic=topic,months=months,filter_text=filter_text,filters=filters,jobs_resource=jobs_resource,jobs_manufacturing=jobs_manufacturing,jobs_trade=jobs_trade,jobs_professional=jobs_professional)
+	elif topic == 'sector':
+		df1 = df0[df0['hc-key'] == 'us-us']
+		#df1 = applyFilters(df1)
+
+		filter_text = 'Jobs By Sector'
+
+		jobs_goods = extractColumn(df1,'delta_goods')
+		jobs_service = extractColumn(df1,'delta_service')
+
+		return render_template('adp1.html',topic=topic,months=months,filter_text=filter_text,filters=filters,jobs_goods=jobs_goods,jobs_service=jobs_service)
 	else:
 		df1 = df0[df0['hc-key'].isin(['us-us'])]
 		df1 = applyFilters(df1)
+
+		filter_text = 'Total Jobs'
 
 		jobs_us = extractColumn(df1[df1['hc-key']=='us-us'],'jobs')
 

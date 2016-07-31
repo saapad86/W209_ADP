@@ -1,14 +1,14 @@
 $(function() {
     $('#container').highcharts({
         chart: {
-            type: 'area',
+            type: 'line',
             zoomType: 'x'
         },
         title: {
             text: 'Jobs Data'
         },
         subtitle: {
-            text: 'Source: ADP Survey'
+            text: 'Monthly Change in Employment'
         },
         xAxis: {
         	categories: months,
@@ -23,8 +23,12 @@ $(function() {
             enabled: false
         },
         series: [{
-            name: 'Total Jobs',
-            data: jobs_us
+            name: 'Goods-producing',
+            data: jobs_goods
+        },
+        {
+            name: 'Services',
+            data: jobs_service
         }]
     });
 });

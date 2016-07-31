@@ -5,10 +5,12 @@
 <!-- <script src="https://code.highcharts.com/stock/highstock.js"></script> -->
 <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
 <script src="../static/js/modules/export-csv.js"></script>
+<script type='text/javascript'>
+		var months = {{months|safe}}
+</script>
 {% if topic == 'region' %}
 	<script src="../static/js/jobs-explorer-region.js"></script>
 	<script type='text/javascript'>
-		var months = {{months|safe}}
 		var jobs_northeast = {{jobs_northeast|safe}}
 		var jobs_west = {{jobs_west|safe}}
 		var jobs_south = {{jobs_south|safe}}
@@ -18,17 +20,22 @@
 {% if topic == 'industry' %}
 	<script src="../static/js/jobs-explorer-industry.js"></script>
 	<script type='text/javascript'>
-		var months = {{months|safe}}
 		var jobs_resource = {{jobs_resource|safe}}
 		var jobs_trade = {{jobs_trade|safe}}
 		var jobs_manufacturing = {{jobs_manufacturing|safe}}
 		var jobs_professional = {{jobs_professional|safe}}
 	</script>
 {% endif %}
-{% if topic == 'total' %}
-	<script src="../static/js/adp2.js"></script>
+{% if topic == 'sector' %}
+	<script src="../static/js/jobs-explorer-sector.js"></script>
 	<script type='text/javascript'>
-		var months = {{months|safe}}
+		var jobs_goods = {{jobs_goods|safe}}
+		var jobs_service = {{jobs_service|safe}}
+	</script>
+{% endif %}
+{% if topic == 'total' %}
+	<script src="../static/js/jobs-explorer-total.js"></script>
+	<script type='text/javascript'>
 		var jobs_us = {{jobs_us|safe}}
 	</script>
 {% endif %}
@@ -44,12 +51,12 @@
 		<tr>
 			<td>
 				<div class="buttons">
-				<ul>
-					<li><a href="/jobs-explorer/size">Company Size</a></li>
-					<li><a href="/jobs-explorer/sector">Sector</a></li>
-					<li><a href="/jobs-explorer/industry">Industry</a></li>
-					<li><a href="/jobs-explorer/region">Region</a></li>
-					<li><a href="/jobs-explorer/total">Total Change</a></li>
+				<ul style="list-style: none;">
+					<li><a href="/jobs-explorer/size"><img src="../static/assets/btn_companysize.png" alt='Company Size'></a></li>
+					<li><a href="/jobs-explorer/size"><img src="../static/assets/btn_sector.png" alt='Sector'></a></li>
+					<li><a href="/jobs-explorer/size"><img src="../static/assets/btn_industry.png" alt='Industry'></a></li>
+					<li><a href="/jobs-explorer/size"><img src="../static/assets/btn_region.png" alt='Region'></a></li>
+					<li><a href="/jobs-explorer/size"><img src="../static/assets/btn_total.png" alt='Total Change'></a></li>
 				</ul>
 				</div>
 			</td>

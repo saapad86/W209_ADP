@@ -1,7 +1,7 @@
 $(function() {
     $('#container').highcharts({
         chart: {
-            type: 'line',
+            type: 'area',
             zoomType: 'x'
         },
         title: {
@@ -23,20 +23,8 @@ $(function() {
             enabled: false
         },
         series: [{
-            name: 'Northeast',
-            data: jobs_northeast
-        },
-        {
-            name: 'West',
-            data: jobs_west
-        },
-        {
-            name: 'South',
-            data: jobs_south
-        },
-        {
-            name: 'Midwest',
-            data: jobs_midwest
+            name: 'Total Jobs',
+            data: jobs_us
         }]
     });
 });
