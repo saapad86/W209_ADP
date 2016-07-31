@@ -1,31 +1,103 @@
 <html>
 <body>
-<script>
-	var months = {{ months|safe }}
-	var jobs = {{ jobs|safe }}
-</script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
+<!-- <script src="https://code.highcharts.com/stock/highstock.js"></script> -->
 <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
 <script src="../static/js/modules/export-csv.js"></script>
-<script src="../static/js/adp2.js"></script>
+{% if topic == 'region' %}
+	<script src="../static/js/jobs-explorer-region.js"></script>
+	<script type='text/javascript'>
+		var months = {{months|safe}}
+		var jobs_northeast = {{jobs_northeast|safe}}
+		var jobs_west = {{jobs_west|safe}}
+		var jobs_south = {{jobs_south|safe}}
+		var jobs_midwest = {{jobs_midwest|safe}}
+	</script>
+{% endif %}
+{% if topic == 'total' %}
+	<script src="../static/js/adp2.js"></script>
+	<script type='text/javascript'>
+		var months = {{months|safe}}
+		var jobs_us = {{jobs_us|safe}}
+	</script>
+{% endif %}
+
 <div id="chart1">
-	<table border=0>
+	<table border=0 width=100%>
+		<tr>
+			<td colspan="2">
+				<h1>Showing {{filter_text|safe}}</h1>
+				<div id="container" class="chart" style="height: 400px; width: 900px"></div>
+			</td>
+		</tr>
 		<tr>
 			<td>
-				<h1>Showing {{filter_text|safe}}</h1>
-				<div id="container" class="chart" style="height: 600; width: 600px"></div>
+				<div class="buttons">
+				<ul>
+					<li><a href="/jobs-explorer/size">Company Size</a></li>
+					<li><a href="/jobs-explorer/sector">Sector</a></li>
+					<li><a href="/jobs-explorer/industry">Industry</a></li>
+					<li><a href="/jobs-explorer/region">Region</a></li>
+					<li><a href="/jobs-explorer/total">Total Change</a></li>
+				</ul>
+				</div>
 			</td>
 			<td>
 				<div class="filters">
-				<form action = "/adp/filter" method="post">
-					<label>
-					    <input type="checkbox" name="check" value="goodsOn" {{goodsOn|safe}}>Goods
-					</label>
-					<label>
-					    <input type="checkbox" name="check" value="serviceOn" {{serviceOn|safe}}>Services
-					</label>
-					<input type="submit" name="submit" value="Filter">
+				<form action = "/jobs-explorer/{{topic|safe}}" method="post">
+				<table border=0>
+					<tr>
+						<td>
+							<label>
+							    <input type="checkbox" name="check" value="filterSectorGoodsOn" {{filters.filterSectorGoodsOn|safe}}>Goods
+							</label>
+							<label>
+							    <input type="checkbox" name="check" value="filterSectorServiceOn" {{filters.filterSectorServiceOn|safe}}>Services
+							</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>
+							    <input type="checkbox" name="check" value="filterIndustryManufacturingOn" {{filters.filterIndustryManufacturingOn|safe}}>Manufacturing
+							</label>
+							<label>
+							    <input type="checkbox" name="check" value="filterIndustryResourceOn" {{filters.filterIndustryResourceOn|safe}}>Natural Resources
+							</label>
+							<label>
+							    <input type="checkbox" name="check" value="filterIndustryProfessionalOn" {{filters.filterIndustryProfessionalOn|safe}}>Professional
+							</label>
+							<label>
+							    <input type="checkbox" name="check" value="filterIndustryTradeOn" {{filters.filterIndustryTradeOn|safe}}>Trade
+							</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>
+							    <input type="checkbox" name="check" value="filterRegionNortheastOn" {{filters.filterRegionNortheastOn|safe}}>Northeast
+							</label>
+							<label>
+							    <input type="checkbox" name="check" value="filterRegionMidwestOn" {{filters.filterRegionMidwestOn|safe}}>Midwest
+							</label>
+							<label>
+							    <input type="checkbox" name="check" value="filterRegionWestOn" {{filters.filterRegionWestOn|safe}}>West
+							</label>
+							<label>
+							    <input type="checkbox" name="check" value="filterRegionSouthOn" {{filters.filterRegionSouthOn|safe}}>South
+							</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						{% for x in months %}
+						{{x|safe}}
+						{% endfor %}
+						</td>
+					</tr>
+				</table>
+				<input type="submit" name="submit" value="Filter">
 				</form>
 				</div>
 			</td>

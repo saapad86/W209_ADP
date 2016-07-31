@@ -19,7 +19,7 @@ $(function() {
         },
         series: [{
             name: 'Total Jobs',
-            data: jobs
+            data: jobs_us
         }]
     });
 });
