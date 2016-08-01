@@ -1,23 +1,24 @@
 $(function() {
-    $('#container').highcharts({
+    window.chart = new Highcharts.StockChart({
         chart: {
-            type: 'line',
-            zoomType: 'x'
+            renderTo: 'container'
         },
         title: {
-            text: 'Monthly Change in Employment'
+            text: 'Jobs Data'
         },
-        subtitle: {
-            text: 'Source: ADP Survey'
+        rangeSelector: {
+            selected: 5    // refers to the index of button array that is pre-selected, see details here: http://api.highcharts.com/highstock#rangeSelector.buttons
         },
-        xAxis: {
-        	categories: months,
-            type: 'datetime',
+        yAxis: {
             labels: {
-                formatter: function() {
-                    return Highcharts.dateFormat('%b %Y', this.value);
+                formatter: function () {
+                    return (this.value > 0 ? ' + ' : '') + this.value;
                 }
-            }
+            },
+        },
+        tooltip: {
+            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> <br/>',
+            valueDecimals:0
         },
         credits: {
             enabled: false

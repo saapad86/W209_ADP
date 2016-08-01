@@ -1,4 +1,5 @@
 $(function() {
+    console.log(data2);
     window.chart = new Highcharts.StockChart({
         chart: {
             renderTo: 'container'
@@ -24,20 +25,8 @@ $(function() {
             enabled: false
         },
         series: [{
-            name: 'Natural Resource',
-            data: jobs_resource
-        },
-        {
-            name: 'Trade',
-            data: jobs_trade
-        },
-        {
-            name: 'Professional',
-            data: jobs_professional
-        },
-        {
-            name: 'Manufacturing',
-            data: jobs_manufacturing
+            name: 'Goods-producing',
+            data: data2
         }]
     });
 });

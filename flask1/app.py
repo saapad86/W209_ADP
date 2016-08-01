@@ -16,6 +16,9 @@ app.debug = True
 def extractColumn(df,column):
 	return (df[column].apply(lambda x: np.round(x)).to_json(orient='values'))
 
+def extractColumn2(df,index,column):
+	return pd.DataFrame(list(zip(index,map(lambda x: np.round(x),df[column]))),columns=['months','data']).values.tolist()
+
 def applyFilters(df):
 	df['jobs'] = df['delta_total']
 	if filters['filterSectorGoodsOn'] == '':
@@ -86,35 +89,44 @@ def adp(topic='total',filter='Total'):
 	def unix_time_millis(dt):
 	    return (dt - epoch).total_seconds() * 1000.0
 
-	months = pd.Series(map(lambda x: unix_time_millis(x),pd.date_range('1/1/2005',periods=136,freq='M'))).tolist()
-
 	filter_text = 'Jobs'
+	months = pd.Series(map(lambda x: unix_time_millis(x),pd.date_range('1/1/2005',periods=136,freq='M')))
 
 	if topic == 'region':
 		df1 = df0[df0['hc-key'].isin(['us-cncr','us-cner','us-csor','us-cwer'])]
 		df1 = applyFilters(df1)
 
-		jobs_midwest = extractColumn(df1[df1['hc-key']=='us-cncr'],'jobs')
-		jobs_northeast = extractColumn(df1[df1['hc-key']=='us-cner'],'jobs')
-		jobs_south = extractColumn(df1[df1['hc-key']=='us-csor'],'jobs')
-		jobs_west = extractColumn(df1[df1['hc-key']=='us-cwer'],'jobs')
+		jobs_midwest = extractColumn2(df1[df1['hc-key']=='us-cncr'],months,'jobs')
+		jobs_northeast = extractColumn2(df1[df1['hc-key']=='us-cner'],months,'jobs')
+		jobs_south = extractColumn2(df1[df1['hc-key']=='us-csor'],months,'jobs')
+		jobs_west = extractColumn2(df1[df1['hc-key']=='us-cwer'],months,'jobs')
 
 		filter_text = 'Jobs By Region'
 
-		return render_template('adp1.html',topic=topic,months=months,filter_text=filter_text,filters=filters,jobs_midwest=jobs_midwest,jobs_northeast=jobs_northeast,jobs_south=jobs_south,jobs_west=jobs_west)
+		return render_template('adp1.html',topic=topic,filter_text=filter_text,filters=filters,jobs_midwest=jobs_midwest,jobs_northeast=jobs_northeast,jobs_south=jobs_south,jobs_west=jobs_west)
 	elif topic == 'industry':
 		df1 = df0[df0['hc-key'] == 'us-us']
 		#df1 = applyFilters(df1)
 
 		filter_text = 'Jobs By Industry'
 
-		jobs_resource = extractColumn(df1,'delta_resource')
-		jobs_manufacturing = extractColumn(df1,'delta_manufacturing')
-		jobs_trade = extractColumn(df1,'delta_trade')
-		jobs_professional = extractColumn(df1,'delta_professional')
+		jobs_resource = extractColumn2(df1,months,'delta_resource')
+		jobs_manufacturing = extractColumn2(df1,months,'delta_manufacturing')
+		jobs_trade = extractColumn2(df1,months,'delta_trade')
+		jobs_professional = extractColumn2(df1,months,'delta_professional')
 
-		return render_template('adp1.html',topic=topic,months=months,filter_text=filter_text,filters=filters,jobs_resource=jobs_resource,jobs_manufacturing=jobs_manufacturing,jobs_trade=jobs_trade,jobs_professional=jobs_professional)
+		return render_template('adp1.html',topic=topic,filter_text=filter_text,filters=filters,jobs_resource=jobs_resource,jobs_manufacturing=jobs_manufacturing,jobs_trade=jobs_trade,jobs_professional=jobs_professional)
 	elif topic == 'sector':
+		df1 = df0[df0['hc-key'] == 'us-us']
+		#df1 = applyFilters(df1)
+
+		filter_text = 'Jobs By Sector'
+
+		jobs_goods = extractColumn2(df1,months,'delta_goods')
+		jobs_service = extractColumn2(df1,months,'delta_service')
+
+		return render_template('adp1.html',topic=topic,filter_text=filter_text,filters=filters,jobs_goods=jobs_goods,jobs_service=jobs_service)
+	elif topic == 'size':
 		df1 = df0[df0['hc-key'] == 'us-us']
 		#df1 = applyFilters(df1)
 
@@ -123,13 +135,16 @@ def adp(topic='total',filter='Total'):
 		jobs_goods = extractColumn(df1,'delta_goods')
 		jobs_service = extractColumn(df1,'delta_service')
 
-		return render_template('adp1.html',topic=topic,months=months,filter_text=filter_text,filters=filters,jobs_goods=jobs_goods,jobs_service=jobs_service)
+		df2 = pd.DataFrame(list(zip(months,map(lambda x: np.round(x),df1['delta_goods']))),columns=['months','delta_goods'])
+		data2 = df2.values.tolist()
+
+		return render_template('adp1.html',topic=topic,data2=data2,filter_text=filter_text,filters=filters,jobs_goods=jobs_goods,jobs_service=jobs_service)
 	else:
 		df1 = df0[df0['hc-key'].isin(['us-us'])]
 		df1 = applyFilters(df1)
 
 		filter_text = 'Total Jobs'
 
-		jobs_us = extractColumn(df1[df1['hc-key']=='us-us'],'jobs')
+		jobs_us = extractColumn2(df1[df1['hc-key']=='us-us'],months,'jobs')
 
-		return render_template('adp1.html',topic=topic,months=months,jobs_us=jobs_us,filter_text=filter_text,filters=filters)
+		return render_template('adp1.html',topic=topic,jobs_us=jobs_us,filter_text=filter_text,filters=filters)
