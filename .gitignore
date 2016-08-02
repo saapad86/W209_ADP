@@ -1,2 +1,4 @@
 
 *.pyc
+
+flask1/__pycache__/app.cpython-34.pyc
