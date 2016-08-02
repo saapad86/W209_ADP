@@ -3,9 +3,6 @@ $(function() {
         chart: {
             renderTo: 'container'
         },
-        title: {
-            text: 'Jobs Data'
-        },
         rangeSelector: {
             selected: 5    // refers to the index of button array that is pre-selected, see details here: http://api.highcharts.com/highstock#rangeSelector.buttons
         },

@@ -2,8 +2,6 @@ from flask import Flask,render_template
 from flask import request
 import pandas as pd
 import numpy as np
-import matplotlib as plt
-import seaborn as sns
 from pandas.compat import StringIO
 import json
 #import pandas_highcharts

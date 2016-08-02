@@ -2,3 +2,5 @@
 *.pyc
 
 flask1/__pycache__/app.cpython-34.pyc
+flask1/venv-amin/*
+flask1/venv/*
