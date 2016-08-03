@@ -5,6 +5,7 @@
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
 <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
 <script src="../static/js/modules/export-csv.js"></script>
+
 {% if topic == 'region' %}
 	<script src="../static/js/jobs-explorer-region.js"></script>
 	<script type='text/javascript'>
@@ -45,11 +46,13 @@
 	</script>
 {% endif %}
 
+<img src="../static/assets/ADP_header.png" alt=''><br><br>
+
 <div id="chart1">
-	<table border=0 width=100%>
+	<table border=0>
 		<tr>
 			<td colspan="2">
-				<h2> Historical Change in Non-Farm US Jobs (in thousands) </h2>
+				<font size = "5"><b> Historical Change in Non-Farm US Jobs (in thousands) </b></font><br>
 				<i> Select a time period for greater focus by dragging across the lower chart. Use the options below to tailor the dataset represented </i><br><br><br>
 				<!--- <h1>Showing {{filter_text|safe}}</h1> -->
 				<div id="container" class="chart" style="height: 400px; width: 900px"></div>
