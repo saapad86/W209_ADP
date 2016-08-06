@@ -23,7 +23,21 @@ def unix_time_millis(dt):
     return (dt - epoch).total_seconds() * 1000.0
 
 def applyFilters(df,exclude=None):
+	if exclude == 'region':
+		region_list = ['us-cncr','us-cner','us-csor','us-cwer']
+	else:
+		region_list = []
+		if filters['filterRegionNortheastOn'] != '':
+			region_list.append('us-cner')
+		if filters['filterRegionSouthOn'] != '':
+			region_list.append('us-csor')
+		if filters['filterRegionWestOn'] != '':
+			region_list.append('us-cwer')
+		if filters['filterRegionMidwestOn'] != '':
+			region_list.append('us-cncr')
+	df = df[df['hc-key'].isin(region_list)]
 	df['jobs'] = df['delta_total']
+
 	if exclude != 'sector':	
 		if filters['filterSectorGoodsOn'] == '':
 			df['jobs'] = df['jobs'] - df['delta_goods']
@@ -38,19 +52,7 @@ def applyFilters(df,exclude=None):
 			df['jobs'] = df['jobs'] - df['delta_professional']
 		if filters['filterIndustryTradeOn'] == '':
 			df['jobs'] = df['jobs'] - df['delta_trade']
-	# if exclude != 'region':
-	# 	if filters['filterRegionNortheastOn'] == '':
 	
-
-	# if 'filterRegionNortheastOn' not in filters:
-	# 	df['jobs'] = df['jobs'] - df['delta_trade']
-	# if 'filterRegionSouthOn' not in filters:
-	# 	df['jobs'] = df['jobs'] - df['delta_trade']
-	# if 'filterRegionWestOn' not in filters:
-	# 	df['jobs'] = df['jobs'] - df['delta_trade']
-	# if 'filterRegionMidwestOn' not in filters:
-	# 	df['jobs'] = df['jobs'] - df['delta_trade']
-
 	return df
 
 @app.route('/')
@@ -94,8 +96,7 @@ def adp(topic='total',filter='Total'):
 	months = pd.Series(map(lambda x: unix_time_millis(x),pd.date_range('1/1/2005',periods=136,freq='M')))
 
 	if topic == 'region':
-		df1 = df0[df0['hc-key'].isin(['us-cncr','us-cner','us-csor','us-cwer'])]
-		df1 = applyFilters(df1,exclude='region')
+		df1 = applyFilters(df0,exclude='region')
 
 		jobs_midwest = extractColumn2(df1[df1['hc-key']=='us-cncr'],months,'jobs')
 		jobs_northeast = extractColumn2(df1[df1['hc-key']=='us-cner'],months,'jobs')
@@ -106,8 +107,7 @@ def adp(topic='total',filter='Total'):
 
 		return render_template('adp1.html',topic=topic,filter_text=filter_text,filters=filters,jobs_midwest=jobs_midwest,jobs_northeast=jobs_northeast,jobs_south=jobs_south,jobs_west=jobs_west)
 	elif topic == 'industry':
-		df1 = df0[df0['hc-key'] == 'us-us']
-		df1 = applyFilters(df1,exclude='industry')
+		df1 = applyFilters(df0,exclude='industry').groupby(['month']).agg(np.sum)
 
 		filter_text = 'Jobs By Industry'
 
@@ -118,8 +118,7 @@ def adp(topic='total',filter='Total'):
 
 		return render_template('adp1.html',topic=topic,filter_text=filter_text,filters=filters,jobs_resource=jobs_resource,jobs_manufacturing=jobs_manufacturing,jobs_trade=jobs_trade,jobs_professional=jobs_professional)
 	elif topic == 'sector':
-		df1 = df0[df0['hc-key'] == 'us-us']
-		df1 = applyFilters(df1,exclude='sector')
+		df1 = applyFilters(df0,exclude='sector').groupby(['month']).agg(np.sum)
 
 		filter_text = 'Jobs By Sector'
 
@@ -128,10 +127,9 @@ def adp(topic='total',filter='Total'):
 
 		return render_template('adp1.html',topic=topic,filter_text=filter_text,filters=filters,jobs_goods=jobs_goods,jobs_service=jobs_service)
 	elif topic == 'size':
-		df1 = df0[df0['hc-key'] == 'us-us']
-		df1 = applyFilters(df1,exclude='size')
+		df1 = applyFilters(df0,exclude='size').groupby(['month']).agg(np.sum)
 
-		filter_text = 'Jobs By Sector'
+		filter_text = 'Jobs By Company Size'
 
 		jobs_goods = extractColumn(df1,'delta_goods')
 		jobs_service = extractColumn(df1,'delta_service')
@@ -141,11 +139,10 @@ def adp(topic='total',filter='Total'):
 
 		return render_template('adp1.html',topic=topic,data2=data2,filter_text=filter_text,filters=filters,jobs_goods=jobs_goods,jobs_service=jobs_service)
 	else:
-		df1 = df0[df0['hc-key'].isin(['us-us'])]
-		df1 = applyFilters(df1)
+		df1 = applyFilters(df0).groupby(['month']).agg(np.sum)
 
 		filter_text = 'Total Jobs'
 
-		jobs_us = extractColumn2(df1[df1['hc-key']=='us-us'],months,'jobs')
+		jobs_us = extractColumn2(df1,months,'jobs')
 
 		return render_template('adp1.html',topic=topic,jobs_us=jobs_us,filter_text=filter_text,filters=filters)

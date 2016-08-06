@@ -70,9 +70,10 @@
 			</td>
 			<td>
 				<div class="filters">
-				<form action = "/jobs-explorer/{{topic|safe}}" method="post">
-				<b>Filters (i.e., data to include in chart above) </b></li><br><br><br>
 				<table border=0>
+				<form action = "/jobs-explorer/{{topic|safe}}" method="post">
+				<b>Filters (i.e., data to include in chart above) </b><br><br><br>
+					{% if topic not in('region') %}
 					<tr>
 						<td>
 							<label>
@@ -89,6 +90,8 @@
 							</label>
 						</td>
 					</tr>
+					{% endif %}
+					{% if topic not in('sector','industry') %}
 					<tr>
 						<td>
 							<label>
@@ -115,11 +118,13 @@
 							</label>
 						</td>
 					</tr>
+					{% endif %}
 				</table>
-				<input type="submit" name="submit" value="Filter">
+				<br/><input type="submit" name="submit" value="Filter">
 				</form>
 				</div>
 			</td>
+		</tr>
 	</table>
 </div>
 <div id="chart2">
