@@ -56,6 +56,7 @@ def applyFilters(df,exclude=None):
 	return df
 
 @app.route('/')
+# make this look like the bls route for the landing page, put the landing page in the static/templates
 def hello_world():
     return 'WELCOME TO FLASK!'
 
