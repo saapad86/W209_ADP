@@ -163,7 +163,7 @@ $(function () {
       return num / den;
     }
 
-    $.getJSON('ADPBLSsep.json', function (activity) {
+    $.getJSON('../static/data/ADPBLSsep.json', function (activity) {
         $.each(activity.datasets, function (i, dataset) {
 
             // Add X values
@@ -349,7 +349,7 @@ $(function () {
 
     // Get the data. The contents of the data file can be viewed at
     // https://github.com/highcharts/highcharts/blob/master/samples/data/activity.json
-    $.getJSON('ADPBLSDiff.json', function (activity) {
+    $.getJSON('../static/data/ADPBLSDiff.json', function (activity) {
         $.each(activity.datasets, function (i, dataset) {
 
             // Add X values
@@ -526,7 +526,7 @@ function bar_avgerror(values, start, end) {
 }
 
 
-  $.getJSON('ADPBLSDiffM.json', function (activity) {
+  $.getJSON('../static/data/ADPBLSDiffM.json', function (activity) {
     $.each(activity.datasets, function (i, dataset) {
 
 
