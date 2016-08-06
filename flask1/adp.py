@@ -24,12 +24,12 @@ def unix_time_millis(dt):
 
 def applyFilters(df,exclude=None):
 	df['jobs'] = df['delta_total']
-	if exclude != 'sector':
+	if exclude != 'sector':	
 		if filters['filterSectorGoodsOn'] == '':
 			df['jobs'] = df['jobs'] - df['delta_goods']
 		if filters['filterSectorServiceOn'] == '':
 			df['jobs'] = df['jobs'] - df['delta_service']
-	if exclude != 'industry':
+	if exclude != 'industry':	
 		if filters['filterIndustryManufacturingOn'] == '':
 			df['jobs'] = df['jobs'] - df['delta_manufacturing']
 		if filters['filterIndustryResourceOn'] == '':
@@ -40,7 +40,7 @@ def applyFilters(df,exclude=None):
 			df['jobs'] = df['jobs'] - df['delta_trade']
 	# if exclude != 'region':
 	# 	if filters['filterRegionNortheastOn'] == '':
-
+	
 
 	# if 'filterRegionNortheastOn' not in filters:
 	# 	df['jobs'] = df['jobs'] - df['delta_trade']

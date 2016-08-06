@@ -7,8 +7,8 @@ $(function() {
             selected: 5    // refers to the index of button array that is pre-selected, see details here: http://api.highcharts.com/highstock#rangeSelector.buttons
         },
         legend: {
-        enabled: true,
-        maxHeight: 100               
+            enabled: true,
+            maxHeight: 100               
         },
         yAxis: {
             labels: {
