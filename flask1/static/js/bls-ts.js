@@ -7,6 +7,12 @@ small variation for each data set, and a mouse/touch event handler to bind the c
 
 $(function () {
 
+  var date1 = $("#date1").val();
+  var date2 = $("#date2").val();
+  var dataString = {
+      date1: date1,
+      date2: date2
+  };
   requestData(dataString);
 
   $("#btnGet").on('click', function(evt) {
