@@ -345,16 +345,7 @@ $(function () {
                                     fillOpacity: 0.3,
                                     tooltip: {
                                               valueSuffix: ' '+'k'
-                                            },
-                                    plotOptions: {
-                                              series: {
-                                              events: {
-                                              legendItemClick: function (event) {
-                                              this.hide()
-                                              }
-                                              }
-                                              }
-                                              }
+                                            }
                                     });
                          }  else {
                           $('<div class="chart">')
