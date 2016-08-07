@@ -1,6 +1,14 @@
 
 $(function () {
 
+  var date3 = $("#date3").val();
+  var date4 = $("#date4").val();
+  var dataString2 = {
+      date3: date3,
+      date4: date4
+  };
+  requestData(dataString2);
+
   $("#btnGet2").on('click', function(evt) {
     $("#container").empty();
       evt.preventDefault();
