@@ -61,11 +61,11 @@ def hello_world():
     return 'WELCOME TO FLASK!'
 
 @app.route('/bls-ts/')
-def bls():
+def bls_ts():
 	return render_template('bls-ts.html')
 
 @app.route('/bls-mth/')
-def bls():
+def bls_mth():
 	return render_template('bls-mth.html')
 
 @app.route('/jobs-explorer/')
