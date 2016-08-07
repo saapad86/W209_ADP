@@ -22,7 +22,17 @@ $(function() {
         },
         tooltip: {
             pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> <br/>',
-            valueDecimals:0
+            valueDecimals:0,
+            dateTimeLabelFormats: {
+                millisecond: '%H:%M:%S.%L',
+                second: '%H:%M:%S',
+                minute: '%H:%M',
+                hour: '%H:%M',
+                day: '%b %Y',
+                week: '%e. %b',
+                month: '%b \'%y',
+                year: '%Y'
+            }
         },
         credits: {
             enabled: false
