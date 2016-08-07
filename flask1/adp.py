@@ -60,9 +60,13 @@ def applyFilters(df,exclude=None):
 def hello_world():
     return 'WELCOME TO FLASK!'
 
-@app.route('/bls')
+@app.route('/bls-ts/')
 def bls():
-	return render_template('bls.html')
+	return render_template('bls-ts.html')
+
+@app.route('/bls-mth/')
+def bls():
+	return render_template('bls-mth.html')
 
 @app.route('/jobs-explorer/')
 @app.route('/jobs-explorer/<topic>',methods=['GET','POST'])
