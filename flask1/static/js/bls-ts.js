@@ -346,6 +346,15 @@ $(function () {
                                     tooltip: {
                                               valueSuffix: ' '+'k'
                                             },
+                                    plotOptions: {
+                                              series: {
+                                              events: {
+                                              legendItemClick: function (event) {
+                                              this.hide()
+                                              }
+                                              }
+                                              }
+                                              }
                                     });
                          }  else {
                           $('<div class="chart">')
