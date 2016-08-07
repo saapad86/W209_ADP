@@ -98,7 +98,7 @@ def adp(topic='total',filter='Total'):
 	df0 = pd.read_csv('static/data/ADP1.csv')
 
 	filter_text = 'Jobs'
-	months = pd.Series(map(lambda x: unix_time_millis(x),pd.date_range('1/1/2005',periods=136,freq='M')))
+	months = pd.Series(map(lambda x: unix_time_millis(x),pd.date_range('1/1/2005',periods=136,freq='MS')))
 
 	if topic == 'region':
 		df1 = applyFilters(df0,exclude='region')
