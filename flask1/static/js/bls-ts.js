@@ -7,6 +7,8 @@ small variation for each data set, and a mouse/touch event handler to bind the c
 
 $(function () {
 
+  requestData(dataString);
+
   $("#btnGet").on('click', function(evt) {
       $("#container").empty();
       evt.preventDefault();
