@@ -4,6 +4,7 @@ $(function() {
             renderTo: 'container'
         },
         rangeSelector: {
+            inputDateFormat: '%Y-%m-%d',
             buttons: [{
                 type: 'month',
                 count: 6,

@@ -12,10 +12,7 @@ app = Flask(__name__)
 app.debug = True
 
 # Helper functions
-def extractColumn(df,column):
-	return (df[column].apply(lambda x: np.round(x)).to_json(orient='values'))
-
-def extractColumn2(df,index,column):
+def extractColumn(df,index,column):
 	return pd.DataFrame(list(zip(index,map(lambda x: np.round(x),df[column]))),columns=['months','data']).values.tolist()
 
 epoch = datetime.datetime.utcfromtimestamp(0)
@@ -57,8 +54,8 @@ def applyFilters(df,exclude=None):
 
 @app.route('/')
 # make this look like the bls route for the landing page, put the landing page in the static/templates
-def hello_world():
-    return 'WELCOME TO FLASK!'
+def landing_page():
+    return render_template('index.html')
 
 @app.route('/bls-ts/')
 def bls_ts():
@@ -103,10 +100,10 @@ def adp(topic='total',filter='Total'):
 	if topic == 'region':
 		df1 = applyFilters(df0,exclude='region')
 
-		jobs_midwest = extractColumn2(df1[df1['hc-key']=='us-cncr'],months,'jobs')
-		jobs_northeast = extractColumn2(df1[df1['hc-key']=='us-cner'],months,'jobs')
-		jobs_south = extractColumn2(df1[df1['hc-key']=='us-csor'],months,'jobs')
-		jobs_west = extractColumn2(df1[df1['hc-key']=='us-cwer'],months,'jobs')
+		jobs_midwest = extractColumn(df1[df1['hc-key']=='us-cncr'],months,'jobs')
+		jobs_northeast = extractColumn(df1[df1['hc-key']=='us-cner'],months,'jobs')
+		jobs_south = extractColumn(df1[df1['hc-key']=='us-csor'],months,'jobs')
+		jobs_west = extractColumn(df1[df1['hc-key']=='us-cwer'],months,'jobs')
 
 		filter_text = 'Jobs By Region'
 
@@ -116,10 +113,10 @@ def adp(topic='total',filter='Total'):
 
 		filter_text = 'Jobs By Industry'
 
-		jobs_resource = extractColumn2(df1,months,'delta_resource')
-		jobs_manufacturing = extractColumn2(df1,months,'delta_manufacturing')
-		jobs_trade = extractColumn2(df1,months,'delta_trade')
-		jobs_professional = extractColumn2(df1,months,'delta_professional')
+		jobs_resource = extractColumn(df1,months,'delta_resource')
+		jobs_manufacturing = extractColumn(df1,months,'delta_manufacturing')
+		jobs_trade = extractColumn(df1,months,'delta_trade')
+		jobs_professional = extractColumn(df1,months,'delta_professional')
 
 		return render_template('adp1.html',topic=topic,filter_text=filter_text,filters=filters,jobs_resource=jobs_resource,jobs_manufacturing=jobs_manufacturing,jobs_trade=jobs_trade,jobs_professional=jobs_professional)
 	elif topic == 'sector':
@@ -127,8 +124,8 @@ def adp(topic='total',filter='Total'):
 
 		filter_text = 'Jobs By Sector'
 
-		jobs_goods = extractColumn2(df1,months,'delta_goods')
-		jobs_service = extractColumn2(df1,months,'delta_service')
+		jobs_goods = extractColumn(df1,months,'delta_goods')
+		jobs_service = extractColumn(df1,months,'delta_service')
 
 		return render_template('adp1.html',topic=topic,filter_text=filter_text,filters=filters,jobs_goods=jobs_goods,jobs_service=jobs_service)
 	elif topic == 'size':
@@ -148,6 +145,6 @@ def adp(topic='total',filter='Total'):
 
 		filter_text = 'Total Jobs'
 
-		jobs_us = extractColumn2(df1,months,'jobs')
+		jobs_us = extractColumn(df1,months,'jobs')
 
 		return render_template('adp1.html',topic=topic,jobs_us=jobs_us,filter_text=filter_text,filters=filters)

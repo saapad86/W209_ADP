@@ -3,8 +3,8 @@ $(function() {
         chart: {
             renderTo: 'container'
         },
-        
         rangeSelector: {
+            inputDateFormat: '%Y-%m-%d',
             buttons: [{
                 type: 'month',
                 count: 6,
@@ -25,7 +25,7 @@ $(function() {
                 text: 'All'
 
             }],
-            selected: 2    // refers to the index of button array that is pre-selected, see details here: http://api.highcharts.com/highstock#rangeSelector.buttons
+            selected: 2    // refers to the index of button array that is pre-selected, see details here: http://api.highcharts.com/highstock#rangeSelector.buttons,
         },
         
         legend: {
