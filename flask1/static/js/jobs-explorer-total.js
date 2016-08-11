@@ -73,7 +73,7 @@ $(function() {
             enabled: false
         },
         series: [{
-            name: 'Total Jobs',
+            name: 'Change in Total Jobs',
             data: jobs_us
         }]
     });

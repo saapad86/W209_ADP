@@ -32,14 +32,15 @@ def applyFilters(df,exclude=None):
 			region_list.append('us-cwer')
 		if filters['filterRegionMidwestOn'] != '':
 			region_list.append('us-cncr')
+
 	df = df[df['hc-key'].isin(region_list)]
 	df['jobs'] = df['delta_total']
 
-	if exclude != 'sector':	
-		if filters['filterSectorGoodsOn'] == '':
-			df['jobs'] = df['jobs'] - df['delta_goods']
-		if filters['filterSectorServiceOn'] == '':
-			df['jobs'] = df['jobs'] - df['delta_service']
+	# if exclude != 'sector':	
+	# 	if filters['filterSectorGoodsOn'] == '':
+	# 		df['jobs'] = df['jobs'] - df['delta_goods']
+	# 	if filters['filterSectorServiceOn'] == '':
+	# 		df['jobs'] = df['jobs'] - df['delta_service']
 	if exclude != 'industry':	
 		if filters['filterIndustryManufacturingOn'] == '':
 			df['jobs'] = df['jobs'] - df['delta_manufacturing']
@@ -53,7 +54,6 @@ def applyFilters(df,exclude=None):
 	return df
 
 @app.route('/')
-# make this look like the bls route for the landing page, put the landing page in the static/templates
 def landing_page():
     return render_template('index.html')
 
