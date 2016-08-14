@@ -6,7 +6,7 @@
     margin:0 auto;
     width: 75%;
     height: 80%;
-}	
+}
 
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -14,6 +14,18 @@
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
 <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
 <script src="../static/js/modules/export-csv.js"></script>
+
+<div id="SwitchButtons" style="margin-left: 1100px; margin-top: 0px">
+  <form action="http://spadela.pythonanywhere.com/">
+  <input type="submit" value="Main Page" />
+  </form>
+  <form action="http://spadela.pythonanywhere.com/bls-ts/">
+  <input type="submit" value="ADP-BLS Time Series" />
+  </form>
+  <form action="http://spadela.pythonanywhere.com/bls-mth/">
+  <input type="submit" value="ADP-BLS By Month" />
+  </form>
+</div>
 
 {% if topic == 'region' %}
 	<script src="../static/js/jobs-explorer-region.js"></script>
@@ -56,7 +68,7 @@
 {% endif %}
 
 <!-- <img src="../static/assets/ADP_header.png" alt=''><br><br> -->
-<!-- 
+<!--
 <link href="../static/js/chardin/chardinjs.css" rel="stylesheet">
 <script src="../static/js/chardin/chardinjs.min.js"></script>
 <script src="../static/js/chardin/chardinjs.js"></script>
@@ -119,7 +131,7 @@
 	</div>
 	<div id="container" class="chart"></div>
 </div>
-<!-- 
+<!--
 <script language="text/javascript">
 $( '#selectAll1' ).click( function () {
 $( '#filterRegions input[type="checkbox"]' ).prop('checked', this.checked)

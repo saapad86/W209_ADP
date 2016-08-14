@@ -5,19 +5,31 @@
 
     <div id="month_comparison">
       <form name="contact" action="" method="post">
-          <p> To plot a column chart of the mean absolute difference between
-            the ADP and BLS <br /> monthly payroll growth  estiates enter start and
+          <p> To update the column chart of the mean absolute difference between
+            the ADP and BLS <br /> monthly payroll growth  estimates change start and
             end dates below: </p>
-          <label for="date3" id="date3_label">Start date</label>
+          <label for="date3" id="date3_label">From</label>
           <input type="date" name="date3" value = "2001-04-01" id="date3" size="30"/>
 
-          <label for="date4" id="date4_label">End date</label>
+          <label for="date4" id="date4_label">To</label>
           <input type="date" name="date4" value = "2016-07-01" id="date4" size="30"/>
-      <button id="btnGet2">Plot chart</button>
+      <button id="btnGet2">Update</button>
     </form>
     </div>
 
   </h5>
+
+    <div id="SwitchButtons" style="margin-left: 1100px; margin-top: -70px">
+      <form action="http://spadela.pythonanywhere.com/">
+      <input type="submit" value="Main Page" />
+      </form>
+      <form action="http://spadela.pythonanywhere.com/bls-ts/">
+      <input type="submit" value="ADP-BLS Time Series" />
+      </form>
+      <form action="http://spadela.pythonanywhere.com/jobs-explorer/">
+      <input type="submit" value="Jobs Explorer" />
+      </form>
+    </div>
 
     <head>
 

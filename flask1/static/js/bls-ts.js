@@ -26,6 +26,7 @@ $(function () {
       };
       requestData(dataString);
   });
+
     /**
      * In order to synchronize tooltips and crosshairs, override the
      * built-in events with handlers defined on the parent element.
@@ -238,7 +239,7 @@ $(function () {
                 .appendTo('#container')
                 .highcharts({
                     chart: {
-                        marginLeft: 150, // Keep all charts left aligned
+                        marginLeft: 200, // Keep all charts left aligned
                         height: 350,
                         spacingBottom: 20,
                         spacingRight: 300
@@ -269,7 +270,7 @@ $(function () {
                     },
                     yAxis: {
                         title: {
-                            text: "Thous."
+                            text: "Thousands"
                         }
                     },
                     tooltip: {
@@ -360,7 +361,7 @@ $(function () {
                               .appendTo('#container')
                               .highcharts({
                                   chart: {
-                                      marginLeft: 150, // Keep all charts left aligned
+                                      marginLeft: 200, // Keep all charts left aligned
                                       height: 350,
                                       spacingBottom: 20,
                                       spacingRight: 300
@@ -391,7 +392,7 @@ $(function () {
                                   },
                                   yAxis: {
                                       title: {
-                                          text: "Thous."
+                                          text: "Thousands"
                                       }
                                   },
                                   tooltip: {

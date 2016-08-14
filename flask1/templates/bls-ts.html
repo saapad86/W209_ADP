@@ -4,19 +4,31 @@
 <h5>
   <div id="date_form">
       <form name="contact" action="" method="post">
-          <p> To view (1) a time series plot of the ADP and BLS monthly payroll
-            growth estimates and (2) a time series plot <br /> of the differences between the ADP
-            and BLS payroll growth estimates enter start and end dates below: </p>
-          <label for="date1" id="date1_label">Start date</label>
+          <p> To update (1) the time series plot of the ADP and BLS monthly payroll
+            growth estimates and (2) the time series plot <br /> of the differences between the ADP
+            and BLS payroll growth estimates change start and end dates below: </p>
+          <label for="date1" id="date1_label">From</label>
           <input type="date" name="date1" value = "2001-04-01" id="date1" size="50" />
 
-          <label for="date2" id="date2_label">End date</label>
+          <label for="date2" id="date2_label">To</label>
           <input type="date" name="date2" value = "2016-07-01" id="date2" size="50" />
-          <button id="btnGet">Plot charts</button>
+          <button id="btnGet">Update</button>
       </form>
     </div>
 
   </h5>
+
+    <div id="SwitchButtons" style="margin-left: 1100px; margin-top: -70px">
+      <form action="http://spadela.pythonanywhere.com/">
+      <input type="submit" value="Main Page" />
+      </form>
+      <form action="http://spadela.pythonanywhere.com/bls-mth/">
+      <input type="submit" value="ADP-BLS By Month" />
+      </form>
+      <form action="http://spadela.pythonanywhere.com/jobs-explorer/">
+      <input type="submit" value="Jobs Explorer" />
+      </form>
+    </div>
 
     <head>
 

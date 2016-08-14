@@ -247,7 +247,7 @@ function neg_ct(values) {
         yAxis: {
             min: 0,
             title: {
-                text: 'Error (Thousands)'
+                text: 'Thousands'
             }
         },
         tooltip: {
