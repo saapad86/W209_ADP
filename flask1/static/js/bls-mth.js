@@ -233,7 +233,7 @@ function neg_ct(values) {
         chart: {
             type: 'column',
             height: 500,
-            marginLeft: 150, // Keep all charts left aligned
+            marginLeft: 125, // Keep all charts left aligned
             spacingRight: 300
         },
         title: {
