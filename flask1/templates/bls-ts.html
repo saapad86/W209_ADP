@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <img src="../static/assets/ADP_header.png" alt=''><br><br>
 <h5>
-  <div id="date_form">
+
+  <div id="SwitchButtons" style="float: right;">
+    <form action="http://spadela.pythonanywhere.com/">
+    <input type="submit" value="Main Page" />
+    </form>
+    <form action="http://spadela.pythonanywhere.com/bls-mth/">
+    <input type="submit" value="ADP-BLS By Month" />
+    </form>
+    <form action="http://spadela.pythonanywhere.com/jobs-explorer/">
+    <input type="submit" value="Jobs Explorer" />
+    </form>
+  </div>
+
+  <div id="date_form" style="margin-left: 65px; margin-top: 0px">
       <form name="contact" action="" method="post">
-          <p> To update (1) the time series plot of the ADP and BLS monthly payroll
+          <font size = "5"><b> Time Series Comparison of ADP and BLS </b></font><br>
+          <br/>
+          <font size = "3" style= "font-weight :normal"> <i> To update (1) the time series plot of the ADP and BLS monthly payroll
             growth estimates and (2) the time series plot <br /> of the differences between the ADP
-            and BLS payroll growth estimates change start and end dates below: </p>
+            and BLS monthly payroll growth estimates change start and end dates below: </i>
+          <br/><br/>
           <label for="date1" id="date1_label">From</label>
           <input type="date" name="date1" value = "2001-04-01" id="date1" size="50" />
 
@@ -18,17 +34,6 @@
 
   </h5>
 
-    <div id="SwitchButtons" style="margin-left: 1100px; margin-top: -70px">
-      <form action="http://spadela.pythonanywhere.com/">
-      <input type="submit" value="Main Page" />
-      </form>
-      <form action="http://spadela.pythonanywhere.com/bls-mth/">
-      <input type="submit" value="ADP-BLS By Month" />
-      </form>
-      <form action="http://spadela.pythonanywhere.com/jobs-explorer/">
-      <input type="submit" value="Jobs Explorer" />
-      </form>
-    </div>
 
     <head>
 
@@ -36,6 +41,7 @@
           <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
           <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
           <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
+          <script src="../static/js/modules/export-csv.js"></script>
       <div id="container" style="min-width: 310px; height: 10px; margin: 100 auto"></div>
 
     </head>

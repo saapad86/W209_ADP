@@ -1,10 +1,11 @@
 <html>
+<img src="../static/assets/ADP_header.png" alt=''><br><br>
 <body>
 <style>
 .chart {
     float:left;
     margin:0 auto;
-    width: 75%;
+    width: 63%;
     height: 80%;
 }
 
@@ -15,7 +16,8 @@
 <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
 <script src="../static/js/modules/export-csv.js"></script>
 
-<div id="SwitchButtons" style="margin-left: 1100px; margin-top: 0px">
+
+<div id="SwitchButtons" style="float: right;">
   <form action="http://spadela.pythonanywhere.com/">
   <input type="submit" value="Main Page" />
   </form>
@@ -25,6 +27,12 @@
   <form action="http://spadela.pythonanywhere.com/bls-mth/">
   <input type="submit" value="ADP-BLS By Month" />
   </form>
+
+<div style="float: right;">
+	<font size="2"><b>
+	<a href="http://spadela.pythonanywhere.com/">Back to ADP Employment Insights</a>
+	</b></font>
+>>>>>>> origin/master
 </div>
 
 {% if topic == 'region' %}
@@ -78,7 +86,7 @@
 	<font size = "5"><b> Historical Change in Non-Farm US Jobs (in thousands) </b></font><br>
 	<i> Select a time period for greater focus by dragging across the lower chart. Use the options below to tailor the dataset represented </i>
 	<br/><br/>
-	<div class="buttons" style="float:left; width: 25%;">
+	<div class="buttons" style="float:left; width: 27%;">
 	<ul style="list-style: none;">
 		<li data-intro='a help tip'><b>Compare Trends by:</b></li><br>
 		<li><a href="/jobs-explorer/total"><img src="../static/assets/btn_total.png" alt='Total Change' {% if topic == 'total' %} style="border:5px solid orange" {% endif %}></a></li>
@@ -91,6 +99,7 @@
 		{% if topic not in('region') %}
 			<div id="filterRegions">
 			<li><b>Region</b></li>
+			<font size="2">
 			<li><label>
 			    <input type="checkbox" name="check" value="filterRegionNortheastOn" {{filters.filterRegionNortheastOn|safe}}>Northeast
 			</label></li>
@@ -103,26 +112,37 @@
 			<li><label>
 			    <input type="checkbox" name="check" value="filterRegionSouthOn" {{filters.filterRegionSouthOn|safe}}>South
 			</label></li>
+			<li><br/></li>
+			</font>
 			</div>
 		{% endif %}
 		{% if topic not in('sector','industry') %}
 			<div id="filterGoods">
-			<li><b>Industry: Goods</b></li>
+			<li><b>Sector: Goods</b></li>
+			<font size="2">
 			<li><label>
 			    <input type="checkbox" name="check" value="filterIndustryManufacturingOn" {{filters.filterIndustryManufacturingOn|safe}}>Manufacturing
 			</label></li>
 			<li><label>
-			    <input type="checkbox" name="check" value="filterIndustryResourceOn" {{filters.filterIndustryResourceOn|safe}}>Construction, Mining, Natural Resources
+			    <input type="checkbox" name="check" value="filterIndustryResourceOn" {{filters.filterIndustryResourceOn|safe}}>Construction, Mining/Resources
 			</label></li>
+			<li><br/></li>
+			</font>
 			</div>
 			<div id="filterServices">
-			<li><b>Industry: Services</b></li>
+			<li><b>Sector: Services</b></li>
+			<font size="2">
 			<li><label>
 			    <input type="checkbox" name="check" value="filterIndustryTradeOn" {{filters.filterIndustryTradeOn|safe}}>Trade, Transport, Utilities
 			</label></li>
 			<li><label>
 			    <input type="checkbox" name="check" value="filterIndustryProfessionalOn" {{filters.filterIndustryProfessionalOn|safe}}>Professional/Business Services
 			</label></li>
+			<li><label>
+			    <input type="checkbox" name="check" value="filterFinanceOn" {{filters.filterIndustryFinanceOn|safe}}>Financial Services/Other
+			</label></li>
+			<li><br/></li>
+			</font>
 			</div>
 		{% endif %}
 		<li><br/></li>

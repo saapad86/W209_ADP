@@ -239,10 +239,10 @@ $(function () {
                 .appendTo('#container')
                 .highcharts({
                     chart: {
-                        marginLeft: 200, // Keep all charts left aligned
+                        marginLeft: 250, // Keep all charts left aligned
                         height: 350,
                         spacingBottom: 20,
-                        spacingRight: 300
+                        spacingRight: 250
                     },
                     title: {
                         text: 'ADP vs BLS',
@@ -288,7 +288,8 @@ $(function () {
                       layout: 'vertical',
                       align: 'top',
                       verticalAlign: 'middle',
-                      borderWidth: 0
+                      borderWidth: 0,
+                      x: 50
                     },
                     series: [{
                         data: dataset.data,
@@ -361,10 +362,10 @@ $(function () {
                               .appendTo('#container')
                               .highcharts({
                                   chart: {
-                                      marginLeft: 200, // Keep all charts left aligned
+                                      marginLeft: 250, // Keep all charts left aligned
                                       height: 350,
                                       spacingBottom: 20,
-                                      spacingRight: 300
+                                      spacingRight: 250
                                   },
                                   title: {
                                       text: 'Difference Between ADP and BLS',
@@ -410,7 +411,8 @@ $(function () {
                                     layout: 'vertical',
                                     align: 'top',
                                     verticalAlign: 'middle',
-                                    borderWidth: 0
+                                    borderWidth: 0,
+                                    x: 50
                                   },
                                   series: [{
                                       data: dataset.data,

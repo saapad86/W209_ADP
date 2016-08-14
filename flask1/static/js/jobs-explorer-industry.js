@@ -86,6 +86,10 @@ $(function() {
         {
             name: 'Manufacturing',
             data: jobs_manufacturing
+        },
+        {
+            name: 'Financial/Other',
+            data: jobs_manufacturing
         }]
     });
 });
