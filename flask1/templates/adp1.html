@@ -1,20 +1,5 @@
 <html>
 <img src="../static/assets/ADP_header.png" alt=''><br><br>
-<body>
-<style>
-.chart {
-    float:left;
-    margin:0 auto;
-    width: 63%;
-    height: 80%;
-}
-
-</style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<!-- <script src="http://code.highcharts.com/highcharts.js"></script> -->
-<script src="https://code.highcharts.com/stock/highstock.js"></script>
-<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-<script src="../static/js/modules/export-csv.js"></script>
 
 <h5>
 
@@ -37,6 +22,23 @@
 </div>
 
 </h5>
+
+<body>
+<style>
+.chart {
+    float:left;
+    margin:0 auto;
+    width: 63%;
+    height: 80%;
+}
+
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!-- <script src="http://code.highcharts.com/highcharts.js"></script> -->
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="../static/js/modules/export-csv.js"></script>
+
 
 {% if topic == 'region' %}
 	<script src="../static/js/jobs-explorer-region.js"></script>
