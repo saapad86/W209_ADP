@@ -4,7 +4,7 @@
 .chart {
     float:left;
     margin:0 auto;
-    width: 73%;
+    width: 63%;
     height: 80%;
 }	
 
@@ -98,6 +98,7 @@
 			<li><label>
 			    <input type="checkbox" name="check" value="filterRegionSouthOn" {{filters.filterRegionSouthOn|safe}}>South
 			</label></li>
+			<li><br/></li>
 			</font>
 			</div>
 		{% endif %}
@@ -111,6 +112,7 @@
 			<li><label>
 			    <input type="checkbox" name="check" value="filterIndustryResourceOn" {{filters.filterIndustryResourceOn|safe}}>Construction, Mining/Resources
 			</label></li>
+			<li><br/></li>
 			</font>
 			</div>
 			<div id="filterServices">
@@ -122,6 +124,10 @@
 			<li><label>
 			    <input type="checkbox" name="check" value="filterIndustryProfessionalOn" {{filters.filterIndustryProfessionalOn|safe}}>Professional/Business Services
 			</label></li>
+			<li><label>
+			    <input type="checkbox" name="check" value="filterFinanceOn" {{filters.filterIndustryFinanceOn|safe}}>Financial Services/Other
+			</label></li>			
+			<li><br/></li>
 			</font>
 			</div>
 		{% endif %}

@@ -72,7 +72,7 @@ $(function() {
             enabled: false
         },
         series: [{
-            name: 'Goods-producing',
+            name: 'Goods',
             data: jobs_goods
         },
         {

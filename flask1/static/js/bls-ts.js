@@ -269,7 +269,7 @@ $(function () {
                     },
                     yAxis: {
                         title: {
-                            text: "Thous."
+                            text: "Thous"
                         }
                     },
                     tooltip: {
