@@ -50,6 +50,8 @@ def applyFilters(df,exclude=None):
 			df['jobs'] = df['jobs'] - df['delta_professional']
 		if filters['filterIndustryTradeOn'] == '':
 			df['jobs'] = df['jobs'] - df['delta_trade']
+		if filters['filterIndustryOtherOn'] == '':
+			df['jobs'] = df['jobs'] - df['delta_other']
 	
 	return df
 
@@ -69,7 +71,7 @@ def bls_mth():
 @app.route('/jobs-explorer/<topic>',methods=['GET','POST'])
 def adp(topic='total',filter='Total'):
 	# Define all the filters we are enabling
-	filter_labels = ['filterSectorGoodsOn','filterSectorServiceOn','filterIndustryTradeOn','filterIndustryProfessionalOn','filterIndustryResourceOn','filterIndustryManufacturingOn','filterRegionMidwestOn','filterRegionSouthOn','filterRegionWestOn','filterRegionNortheastOn']
+	filter_labels = ['filterSectorGoodsOn','filterSectorServiceOn','filterIndustryTradeOn','filterIndustryProfessionalOn','filterIndustryResourceOn','filterIndustryManufacturingOn','filterIndustryOtherOn','filterRegionMidwestOn','filterRegionSouthOn','filterRegionWestOn','filterRegionNortheastOn']
 	# Initialize them as empty for now...
 	filter_values = ['']*len(filter_labels)
 
@@ -93,6 +95,7 @@ def adp(topic='total',filter='Total'):
 				filters[f] = 'checked'
 
 	df0 = pd.read_csv('static/data/ADP1.csv')
+	df0['delta_other'] = df0['delta_total'] - df0['delta_manufacturing'] - df0['delta_resource'] - df0['delta_professional'] - df0['delta_trade']
 
 	filter_text = 'Jobs'
 	months = pd.Series(map(lambda x: unix_time_millis(x),pd.date_range('1/1/2005',periods=136,freq='MS')))
@@ -118,7 +121,7 @@ def adp(topic='total',filter='Total'):
 		jobs_trade = extractColumn(df1,months,'delta_trade')
 		jobs_professional = extractColumn(df1,months,'delta_professional')
 
-		return render_template('adp1.html',topic=topic,filter_text=filter_text,filters=filters,jobs_resource=jobs_resource,jobs_manufacturing=jobs_manufacturing,jobs_trade=jobs_trade,jobs_professional=jobs_professional)
+		return render_template('adp1.html',topic=topic,filter_text=filter_text,filters=filters,jobs_resource=jobs_resource,jobs_manufacturing=jobs_manufacturing,jobs_trade=jobs_trade,jobs_professional=jobs_professional,jobs_other=jobs_other)
 	elif topic == 'sector':
 		df1 = applyFilters(df0,exclude='sector').groupby(['month']).agg(np.sum)
 

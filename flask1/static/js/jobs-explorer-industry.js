@@ -89,7 +89,7 @@ $(function() {
         },
         {
             name: 'Financial/Other',
-            data: jobs_manufacturing
+            data: jobs_other
         }]
     });
 });

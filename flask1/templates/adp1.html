@@ -63,6 +63,7 @@
 		var jobs_trade = {{jobs_trade|safe}}
 		var jobs_manufacturing = {{jobs_manufacturing|safe}}
 		var jobs_professional = {{jobs_professional|safe}}
+		var jobs_other = {{jobs_other|safe}}
 	</script>
 {% endif %}
 {% if topic == 'sector' %}
@@ -148,7 +149,7 @@
 			    <input type="checkbox" name="check" value="filterIndustryProfessionalOn" {{filters.filterIndustryProfessionalOn|safe}}>Professional/Business Services
 			</label></li>
 			<li><label>
-			    <input type="checkbox" name="check" value="filterFinanceOn" {{filters.filterIndustryFinanceOn|safe}}>Financial Services/Other
+			    <input type="checkbox" name="check" value="filterIndustryOtherOn" {{filters.filterIndustryOtherOn|safe}}>Financial Services/Other
 			</label></li>
 			<li><br/></li>
 			</font>
