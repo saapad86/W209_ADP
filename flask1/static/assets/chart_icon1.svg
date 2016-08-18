@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 960 560" style="enable-background:new 0 0 960 560;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#E0E0E0;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#D80A5B;stroke-width:1.3823;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#59C5D0;stroke-width:1.3823;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#FF5408;stroke-width:1.3823;stroke-miterlimit:10;}
+	.st4{fill:#E0E0E0;}
+	.st5{font-family:'ArialMT';}
+	.st6{font-size:42.8972px;}
+	.st7{fill:none;stroke:#616161;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#FFA726;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st9{fill:none;stroke:#0097A7;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<g>
+	<rect x="25" y="12.1" class="st0" width="699.5" height="457.9"/>
+	<line class="st0" x1="25" y1="424.2" x2="724.5" y2="424.2"/>
+	<line class="st0" x1="25" y1="378.4" x2="724.5" y2="378.4"/>
+	<line class="st0" x1="25" y1="332.6" x2="724.5" y2="332.6"/>
+	<line class="st0" x1="25" y1="286.8" x2="724.5" y2="286.8"/>
+	<line class="st0" x1="25" y1="241" x2="724.5" y2="241"/>
+	<line class="st0" x1="25" y1="195.2" x2="724.5" y2="195.2"/>
+	<line class="st0" x1="25" y1="149.5" x2="724.5" y2="149.5"/>
+	<line class="st0" x1="25" y1="103.7" x2="724.5" y2="103.7"/>
+	<line class="st0" x1="25" y1="57.9" x2="724.5" y2="57.9"/>
+	<line class="st0" x1="548.8" y1="12.1" x2="548.8" y2="470"/>
+	<line class="st0" x1="374.5" y1="12.1" x2="374.5" y2="470"/>
+	<line class="st0" x1="199.8" y1="12.1" x2="199.8" y2="470"/>
+	<path class="st1" d="M25,428.4"/>
+	<path class="st2" d="M25,335.9"/>
+	<path class="st3" d="M28.3,332.6"/>
+	<g>
+		<text transform="matrix(1 0 0 1 65.1102 524.0031)" class="st4 st5 st6">2012</text>
+	</g>
+	<g>
+		<text transform="matrix(1 0 0 1 236.5926 524.0031)" class="st4 st5 st6">2013</text>
+	</g>
+	<g>
+		<text transform="matrix(1 0 0 1 413.1277 524.0031)" class="st4 st5 st6">2014</text>
+	</g>
+	<g>
+		<text transform="matrix(1 0 0 1 589.7039 524.0031)" class="st4 st5 st6">2015</text>
+	</g>
+	<polyline class="st7" points="25.9,377.5 204.4,291 468,378.9 721.3,257.4 	"/>
+	<polyline class="st8" points="25.9,330.8 126.9,185.4 387.1,301.3 432,126.1 722.2,98 	"/>
+	<polyline class="st9" points="25.9,424.2 129.2,242.4 304.4,432.2 421.3,316.7 554.9,312.5 725,149.5 	"/>
+</g>
+</svg>

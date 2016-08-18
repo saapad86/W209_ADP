@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 960 560" style="enable-background:new 0 0 960 560;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#E0E0E0;}
+	.st1{fill:#D7DF23;}
+	.st2{fill:#00ACC1;}
+	.st3{fill:#FFA726;}
+	.st4{font-family:'OpenSans-Semibold';}
+	.st5{font-size:43.9697px;}
+	.st6{font-size:43.9701px;}
+	.st7{fill:none;stroke:#E0E0E0;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st8{fill:#616161;}
+</style>
+<g>
+	<g>
+		<rect x="74.3" y="190.9" class="st0" width="40.7" height="227.5"/>
+		<rect x="133" y="114.6" class="st0" width="38.1" height="303.8"/>
+		<rect x="249.4" y="62.8" class="st0" width="38.1" height="355.7"/>
+		<rect x="303.2" y="206.8" class="st0" width="40.7" height="211.7"/>
+		<rect x="74.3" y="228.2" class="st1" width="40.7" height="190.2"/>
+		<rect x="133" y="164.4" class="st2" width="38.1" height="254"/>
+		<rect x="249.4" y="121.1" class="st3" width="38.1" height="297.4"/>
+		<rect x="433.4" y="190.9" class="st0" width="40.7" height="227.5"/>
+		<rect x="492.1" y="114.6" class="st0" width="38.1" height="303.8"/>
+		<rect x="608.6" y="62.8" class="st0" width="38.1" height="355.7"/>
+		<rect x="662.4" y="206.8" class="st0" width="40.7" height="211.7"/>
+		<rect x="433.4" y="228.2" class="st1" width="40.7" height="190.2"/>
+		<rect x="492.1" y="164.4" class="st2" width="38.1" height="254"/>
+		<rect x="608.6" y="121.1" class="st3" width="38.1" height="297.4"/>
+		<g>
+			<text transform="matrix(1 0 0 1 80.1991 487.4079)" class="st0 st4 st5">2012</text>
+		</g>
+		<g>
+			<text transform="matrix(1 0 0 1 254.2289 487.4079)" class="st0 st4 st5">2013</text>
+		</g>
+		<g>
+			<text transform="matrix(1 9.319968e-03 -9.319968e-03 1 435.6121 488.007)" class="st0 st4 st6">2014</text>
+		</g>
+		<g>
+			<text transform="matrix(1 9.319968e-03 -9.319968e-03 1 618.6432 489.7159)" class="st0 st4 st6">2015</text>
+		</g>
+		<line class="st7" x1="36.6" y1="365.3" x2="25" y2="365.3"/>
+		<line class="st7" x1="36.6" y1="317.4" x2="25" y2="317.4"/>
+		<line class="st7" x1="36.6" y1="255.4" x2="25" y2="255.4"/>
+		<line class="st7" x1="36.6" y1="193.4" x2="25" y2="193.4"/>
+		<line class="st7" x1="36.6" y1="131.3" x2="25" y2="131.3"/>
+		<line class="st7" x1="36.6" y1="69.3" x2="25" y2="69.3"/>
+		<polyline class="st7" points="40.6,48.5 40.6,434.4 725,434.4 		"/>
+	</g>
+	<rect x="303.2" y="241.4" class="st8" width="40.7" height="177"/>
+	<rect x="662.4" y="241.4" class="st8" width="40.7" height="177"/>
+</g>
+</svg>

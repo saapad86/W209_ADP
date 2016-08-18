@@ -1,20 +1,37 @@
 <html>
 <body>
 <img src="../static/assets/ADP_header.png" alt=''><br><br>
-<h3>ADP Employment Report</h3>
-<p>
-Business owners, policymakers, journalists, economists and financial market professionals, closely watch the ADP’s Monthly Employment Report. The Employment Report provides an early indicator of the state of the US economy and labor markets. The ADP employment report also sets expectations for what to expect in the official government report employment that is released a few days later.
-</p>
-<h3>ADP Jobs Explorer (Ideal for Journalists, General Business Users and Students)</h3>
-<p>
-ADP provides useful splits of the employment data.  The employment data are available at the national, regional and state levels, by industry and sector, and by company size. This website, not only allows you to download these data in raw format, but it also allows you to visually interact with these data in time series form by the geographical, industry and company splits mentioned above. These visualizations allow you to engage with the data, identify trends across various splits in the data and easily consume the economic insights that emerge from them.
-</p>
-<p>Please click here to use the “ADP Jobs Explorer” visualization tool: <a href="http://spadela.pythonanywhere.com/jobs-explorer/">http://spadela.pythonanywhere.com/jobs-explorer/</a>.
-</p>
-<h3>ADP vs BLS Comparison Tool (Ideal for Economists and Financial Market Professional)</h3>
-<p>The ADP national employment report is released a couple days before one of the most closely watch economic reports of the month – the government-produced Bureau of Labor Statistics (BLS) employment report. This website provides a tool which allows you to compare the ADP private payrolls to the BLS private payrolls over time periods of your choice.</p>
-<p>Please click here to use the “ADP vs BLS” time series visualization tool: <a href="http://spadela.pythonanywhere.com/bls-ts/">http://spadela.pythonanywhere.com/bls-ts/</a></p>
-<p>Another useful tool this website provides is a column chart showing the average difference between the estimates of ADP and BLS employment growth by month. You are able to change the time period over which these comparisons are made. These visualizations combined should enable you to set reasonable expectations for the BLS national employment report.</p>
-<p>Please click here to use the “ADP vs BLS” monthly comparison visualization tool: <a href="http://spadela.pythonanywhere.com/bls-mth/">http://spadela.pythonanywhere.com/bls-mth/</a></p>
-</body>
-</html>
+<br/>
+<div id="jobs-explorer-tab"  style="float:left; width:80%;">
+	<img src="../static/assets/spacer.gif" alt='Click to Use the Jobs Explorer' width=275 height=175 style="float:left"/>
+	<font size="6" color="#DC1E31"><b>ADP Employment Report</b></font><br/>
+	ADP’s Monthly Employment Report is closely monitored by business leaders, policymakers, journalists, economists, and financial market professionals as an early indicator of the state of the US economy and labor markets. Here, we provide three visualizations to help explore the jobs data.
+	<br/><br/><i>Compatibility: this website is optimized for viewing on Desktop, in Google Chrome.</i>
+</div>
+<br/><br/>
+<div id="jobs-explorer-tab"  style="float:left; width:80%;">
+	<a href="jobs-explorer/">
+		<img src="../static/assets/chart_icon1.svg" alt='Click to Use the Jobs Explorer' width=275 style="float:left"/>
+	</a>
+	<b><a href="jobs-explorer/" style="text-decoration: none;"><font size="6" color="#DC1E31">Jobs Explorer</font></a></b><br/>
+	<i>Ideal for Journalists, Business Leaders, and Researchers</i><br/><br/>
+	Explore the monthly employment figures since 2005. Visualize trends by region, sector, and industry, using filters to drill-down to the insights you need. Export your visualizations as PDF or images for easy sharing.
+</div>
+<br/><br/>
+<div id="bls-ts-tab" style="float:left; width:80%;">
+	<a href="bls-ts/">
+		<img src="../static/assets/chart_icon2.svg" alt='Click to Use the BLS Monthly Comparison Tool' width=275 style="float:left"/>
+	</a>
+	<b><a href="bls-ts/" style="text-decoration: none;"><font size="6" color="#DC1E31">BLS Monthly Comparison Tool</font></a></b><br/><br/>
+	<i>Ideal for Economists and Financial Market Professionals</i><br/><br/>
+	Visualize the predictive power of ADP private payrolls versus the government-produced Bureau of Labor Statistics (BLS) employment report. Track the mean and absolute difference between monthly ADP/BLS figures since 2001-2016.
+</div>
+<br/><br/>
+<div id="bls-mth-tab" style="float:left; width:80%;">
+	<a href="bls-mth/">
+		<img src="../static/assets/chart_icon3.svg" alt='Click to Use the BLS Seasonal Comparison Tool<' width=275 style="float:left"/>
+	</a>
+	<b><a href="bls-mth/" style="text-decoration: none;"><font size="6" color="#DC1E31">BLS Seasonal Comparison Tool</font></a></b><br/><br/>
+	<i>Ideal for Journalists, General Business Users and Students</i>.<br/><br/>
+	Understand seasonal differences in ADP/BLS figures by plotting the average difference by month (across all selected years).
+</div>

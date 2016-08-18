@@ -120,6 +120,7 @@ def adp(topic='total',filter='Total'):
 		jobs_manufacturing = extractColumn(df1,months,'delta_manufacturing')
 		jobs_trade = extractColumn(df1,months,'delta_trade')
 		jobs_professional = extractColumn(df1,months,'delta_professional')
+		jobs_other = extractColumn(df1,months,'delta_other')
 
 		return render_template('adp1.html',topic=topic,filter_text=filter_text,filters=filters,jobs_resource=jobs_resource,jobs_manufacturing=jobs_manufacturing,jobs_trade=jobs_trade,jobs_professional=jobs_professional,jobs_other=jobs_other)
 	elif topic == 'sector':
