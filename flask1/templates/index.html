@@ -1,6 +1,83 @@
 <html>
 <body>
-<img src="../static/assets/ADP_header.png" alt=''><br><br>
+<style>
+/* Remove margins and padding from the list, and add a black background color */
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Float the list items side by side */
+ul.topnav li {float: left;}
+
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 14px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+/* Change background color of links on hover */
+ul.topnav li a:hover {background-color: #555;}
+
+/* Hide the list item that contains the link that should open and close the topnav on small screens */
+ul.topnav li.icon {display: none;}
+
+/* When the screen is less than 680 pixels wide, hide all list items, except for the first one ("Home"). Show the list item that contains the link to open and close the topnav (li.icon) */
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens */
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+</style>
+<div id="header">
+<img src="../static/assets/ADP_header.png" alt='' style="width:60%;">
+</div>
+<br><br>
+
+<div id="main_title" style="margin-left: 35px; margin-top: 0px;">
+  <font size = "5"><b> Historical Change in Non-Farm US Jobs (in thousands) </b></font><br>
+  <br/>
+	<font size = "3" style= "font-weight :normal"> <i> Select a time period for greater
+    focus by dragging across the lower chart. Use the options below to tailor the dataset represented. </i>
+	<br/><br/>
+<ul class="topnav" id="myTopnav" style="position:fixed; top: 0; right: 0;">
+  <li><a href="/">Main</a></li>
+  <li><a href="/jobs-explorer/">Jobs Explorer</a></li>
+  <li><a href="/bls-ts/">Monthly Comparison</a></li>
+  <li><a href="/bls-mth">Seasonal Comparison</a></li>
+  <li class="icon">
+    <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+  </li>
+</ul>
+</div>
 <br/>
 <div id="jobs-explorer-tab"  style="float:left; width:80%;">
 	<img src="../static/assets/spacer.gif" width=275 height=175 style="float:left"/>
@@ -22,7 +99,7 @@
 	<a href="bls-ts/">
 		<img src="../static/assets/chart_icon2.svg" alt='Click to Use the BLS Monthly Comparison Tool' width=275 style="float:left"/>
 	</a>
-	<b><a href="bls-ts/" style="text-decoration: none;"><font size="6" color="#DC1E31">BLS Monthly Comparison Tool</font></a></b><br/><br/>
+	<b><a href="bls-ts/" style="text-decoration: none;"><font size="6" color="#DC1E31">BLS Monthly Comparison Tool</font></a></b><br/>
 	<i>Ideal for Economists and Financial Market Professionals</i><br/><br/>
 	Visualize the predictive power of ADP private payrolls versus the government-produced Bureau of Labor Statistics (BLS) employment report. Track the mean and absolute difference between monthly ADP/BLS figures since 2001-2016.
 </div>
@@ -31,7 +108,7 @@
 	<a href="bls-mth/">
 		<img src="../static/assets/chart_icon3.svg" alt='Click to Use the BLS Seasonal Comparison Tool<' width=275 style="float:left"/>
 	</a>
-	<b><a href="bls-mth/" style="text-decoration: none;"><font size="6" color="#DC1E31">BLS Seasonal Comparison Tool</font></a></b><br/><br/>
+	<b><a href="bls-mth/" style="text-decoration: none;"><font size="6" color="#DC1E31">BLS Seasonal Comparison Tool</font></a></b><br/>
 	<i>Ideal for Journalists, General Business Users and Students</i>.<br/><br/>
 	Understand seasonal differences in ADP/BLS figures by plotting the average difference by month (across all selected years).
 </div>
