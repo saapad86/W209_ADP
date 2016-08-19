@@ -29,10 +29,15 @@ $(function() {
         },
         
         legend: {
-            enabled: true,
-            maxHeight: 100               
+          enabled: true,
+          title: {
+            text: 'Legend<br/><span style="font-size: 9px; color: #666; font-weight: normal">(Click to hide)</span>',
+          },
+          layout: 'vertical',
+          align: 'left',
+          verticalAlign: 'middle',
         },
-        
+
         xAxis: {
             dateTimeLabelFormats: {
                 millisecond:"%A, %b %e, %H:%M:%S.%L",
@@ -48,6 +53,7 @@ $(function() {
         
         yAxis: {
             labels: {
+                align: 'left',
                 formatter: function () {
                     return (this.value > 0 ? ' + ' : '') + this.value + 'K';
                 }

@@ -28,12 +28,7 @@ $(function() {
             }],
             selected: 2    // refers to the index of button array that is pre-selected, see details here: http://api.highcharts.com/highstock#rangeSelector.buttons
         },
-        
-        legend: {
-            enabled: true,
-            maxHeight: 100               
-        },
-        
+              
         xAxis: {
             dateTimeLabelFormats: {
                 millisecond:"%A, %b %e, %H:%M:%S.%L",
@@ -49,6 +44,7 @@ $(function() {
         
         yAxis: {
             labels: {
+                align: 'left',
                 formatter: function () {
                     return (this.value > 0 ? ' + ' : '') + this.value + 'K';
                 }
